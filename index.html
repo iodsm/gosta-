@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linguiça de Porco</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #222, #111);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            position: relative;
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            width: 80px;
+        }
+        .content {
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: #333;
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .yes {
+            background-color: green;
+            color: white;
+        }
+        .no {
+            background-color: red;
+            color: white;
+            position: absolute;
+        }
+    </style>
+    <script>
+        function showMessage() {
+            document.body.innerHTML = '<h1>Hmmm, então você gosta de linguiça de porco, rs...</h1>';
+            setTimeout(() => {
+                window.location.href = 'https://www.youtube.com/watch?v=izGwDsrQ1eQ';
+            }, 3000);
+        }
+
+        function moveButton(event) {
+            const button = event.target;
+            const maxX = window.innerWidth - button.offsetWidth - 20; // Adicionando margem para não ultrapassar
+            const maxY = window.innerHeight - button.offsetHeight - 20; // Adicionando margem para não ultrapassar
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+</head>
+<body>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="content">
+        EAE MANO, VOCÊ GOSTA DE LINGUIÇA DE PORCO?
+    </div>
+    <div class="buttons">
+        <button class="yes" onclick="showMessage()">Sim</button>
+        <button class="no" onmouseover="moveButton(event)">Não</button>
+    </div>
+</body>
+</html>
